@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Captain Whiskers: Yarn Hoard</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="game-shell">
+      <div id="hud">
+        <div class="hud-left">
+          <h1>Captain Whiskers: Yarn Hoard</h1>
+          <p id="status-line">Collect treats. Outsmart Sir Vacuum.</p>
+        </div>
+        <div class="hud-right">
+          <div class="stat"><span>Treats</span><strong id="score">0</strong></div>
+          <div class="stat"><span>Happiness</span><strong id="happiness">100</strong></div>
+          <div class="stat"><span>Level</span><strong id="level">1</strong></div>
+        </div>
+      </div>
+
+      <canvas id="game-canvas" width="1920" height="1080" aria-label="Game canvas"></canvas>
+
+      <div id="overlay" class="visible">
+        <div class="panel">
+          <h2 id="overlay-title">Captain Whiskers: Yarn Hoard</h2>
+          <p id="overlay-text">
+            Tap the giant yarn cookie to earn treats, buy kitten helpers, and protect your hoard from Sir Vacuum.
+          </p>
+          <button id="start-button">Press Start</button>
+        </div>
+      </div>
+
+      <div id="controls">
+        <div class="control-card">
+          <h3>Controls</h3>
+          <p>Click/Tap yarn: +Treats</p>
+          <p>WASD / Arrows: move Whiskers</p>
+          <p>Space or Pounce button: 6s frenzy mode</p>
+          <p>Q/E: buy upgrades</p>
+          <p>~: toggle FPS overlay</p>
+        </div>
+        <div class="touch-pad">
+          <button data-action="up">W</button>
+          <div class="middle-row">
+            <button data-action="left">A</button>
+            <button data-action="down">S</button>
+            <button data-action="right">D</button>
+          </div>
+          <button data-action="pounce" class="pounce">Pounce (Space)</button>
+        </div>
+      </div>
+
+      <div id="shop">
+        <button id="buy-helper">Adopt Helper Kitten (Q) — 50</button>
+        <button id="buy-oven">Warm Milk Engine (E) — 120</button>
+      </div>
+
+      <div id="fps-overlay" aria-live="polite">FPS: 0</div>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>

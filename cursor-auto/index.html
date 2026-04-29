@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Catnip Cookie — Treat Tapper</title>
+  <link rel="icon" type="image/png" href="assets/fish_treat.png" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preload" href="assets/player_cookie.png" as="image" />
+  <link rel="preload" href="assets/enemy_dog.png" as="image" />
+  <link rel="preload" href="assets/bg_room.png" as="image" />
+  <link rel="preload" href="assets/helper_cat.png" as="image" />
+  <link rel="preload" href="assets/fish_treat.png" as="image" />
+</head>
+<body>
+  <div id="app">
+    <canvas id="game-canvas" width="1920" height="1080" tabindex="0" aria-label="Game canvas — use mouse or touch to tap the yarn cookie. WASD nudges it. Space starts from menu."></canvas>
+    <div id="touch-bar" aria-label="Move yarn pile">
+      <button type="button" data-dir="w">W</button>
+      <button type="button" data-dir="a">A</button>
+      <button type="button" data-dir="s">S</button>
+      <button type="button" data-dir="d">D</button>
+    </div>
+    <div id="hud-dom" class="sr-only" aria-live="polite"></div>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>

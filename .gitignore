@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+
+# Build outputs (rebuild with `make build` / CI)
+dist/
+site/
+
+# Playwright
+test-results/
+playwright-report/
+blob-report/
+
+# OS / editor
+.DS_Store
+*.swp
+*.swo
+.idea/
+.vscode/

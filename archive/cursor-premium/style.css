@@ -1,0 +1,228 @@
+:root {
+  color-scheme: dark;
+  font-family: "Trebuchet MS", "Arial Rounded MT Bold", Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at 20% 20%, #3f355e 0%, #1a152b 60%, #100d18 100%);
+  color: #fff8f0;
+}
+
+#game-shell {
+  position: relative;
+  width: min(96vw, 1920px);
+  aspect-ratio: 16 / 9;
+  margin: 2vh auto;
+  border: 4px solid #f2c57c;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+  background: #1f1831;
+}
+
+#game-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+#hud {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 20px;
+  background: linear-gradient(180deg, rgba(9, 5, 16, 0.78), rgba(9, 5, 16, 0.2));
+}
+
+.hud-left h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.hud-left p {
+  margin: 6px 0 0;
+  font-size: 15px;
+}
+
+.hud-right {
+  display: flex;
+  gap: 12px;
+}
+
+.stat {
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: rgba(243, 170, 91, 0.18);
+  border: 1px solid rgba(255, 214, 153, 0.46);
+  min-width: 120px;
+}
+
+.stat span {
+  display: block;
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.stat strong {
+  font-size: 22px;
+}
+
+#overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(12, 7, 20, 0.74);
+}
+
+#overlay.visible {
+  display: flex;
+}
+
+.panel {
+  max-width: 640px;
+  border-radius: 16px;
+  border: 2px solid #ffd1a1;
+  background: rgba(33, 20, 47, 0.92);
+  padding: 26px;
+  text-align: center;
+}
+
+.panel h2 {
+  margin-top: 0;
+  font-size: 42px;
+}
+
+.panel p {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+#start-button {
+  margin-top: 14px;
+  font-size: 22px;
+  border: 0;
+  border-radius: 999px;
+  padding: 14px 26px;
+  background: linear-gradient(180deg, #ffcf83, #f39a5b);
+  color: #2e1f12;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+#controls {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+  z-index: 3;
+  display: flex;
+  gap: 16px;
+}
+
+.control-card,
+.touch-pad {
+  background: rgba(20, 13, 34, 0.82);
+  border: 1px solid rgba(255, 215, 160, 0.48);
+  border-radius: 12px;
+  padding: 10px 12px;
+}
+
+.control-card h3 {
+  margin: 0 0 6px;
+}
+
+.control-card p {
+  margin: 4px 0;
+  font-size: 14px;
+}
+
+.touch-pad {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.touch-pad button {
+  min-width: 54px;
+  min-height: 54px;
+  border: 0;
+  border-radius: 10px;
+  background: #5f4b8b;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.touch-pad .middle-row {
+  display: flex;
+  gap: 8px;
+}
+
+.touch-pad .pounce {
+  min-width: 170px;
+  background: #f08b56;
+}
+
+#shop {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+#shop button {
+  border: 0;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #291714;
+  background: linear-gradient(180deg, #ffe3a3, #ffb777);
+  padding: 12px 14px;
+  cursor: pointer;
+}
+
+#fps-overlay {
+  position: absolute;
+  right: 20px;
+  top: 96px;
+  z-index: 4;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: rgba(8, 8, 10, 0.78);
+  border: 1px solid #8fdfff;
+  font-size: 14px;
+  display: none;
+}
+
+#fps-overlay.visible {
+  display: block;
+}
+
+@media (max-width: 1100px) {
+  .hud-left h1 {
+    font-size: 20px;
+  }
+
+  .stat strong {
+    font-size: 18px;
+  }
+
+  .control-card p {
+    font-size: 12px;
+  }
+}

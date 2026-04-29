@@ -1,0 +1,7 @@
+{
+  "name": "catnip-cookie-tapper",
+  "private": true,
+  "devDependencies": {
+    "@playwright/test": "^1.49.0"
+  }
+}
