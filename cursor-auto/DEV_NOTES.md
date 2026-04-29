@@ -1,10 +1,9 @@
 # Dev Notes - cursor-auto
 
-## Notes
-- Date:
-- What changed:
-- Why:
-- Result:
+## Stack
 
-## Next
-- [ ] 
+TBD
+
+## Notes
+
+- TBD

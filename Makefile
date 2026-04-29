@@ -1,6 +1,6 @@
 # Showcase umbrella: every top-level directory except `archive`, `scripts`, `templates`, and `tools` (and generated `site`) is a mini-project with `make build` → dist/
 
-PROJECTS := $(filter-out archive scripts templates tools site site-assets,$(patsubst %/,%,$(wildcard */)))
+PROJECTS := $(filter-out archive scripts templates tools site site-assets node_modules,$(patsubst %/,%,$(wildcard */)))
 
 .PHONY: deps build site clean
 

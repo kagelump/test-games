@@ -1,15 +1,12 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 
-const qwenNote =
-  "<p class=\"note\"><strong>Note:</strong> <code>qwen3.6</code> started with <code>qwen3.6-27b</code>, got stuck while starting the server and running Chrome MCP, then switched to <code>qwen3.6-plus</code>.</p>";
-
 function escapeHtml(value) {
   return value
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;")
-    .replaceAll("\"", "&quot;")
+    .replaceAll('"', "&quot;")
     .replaceAll("'", "&#39;");
 }
 
@@ -21,16 +18,50 @@ function getProjectsFromEnv() {
     .filter(Boolean);
 }
 
+function parseDevNotes(projectName) {
+  const notesPath = resolve(projectName, "DEV_NOTES.md");
+  try {
+    const notes = readFileSync(notesPath, "utf8").replace(/\r\n/g, "\n");
+    const stackMatch = notes.match(/## Stack[ \t]*\n([\s\S]*?)(?:\n## |\n*$)/);
+    const notesMatch = notes.match(/## Notes[ \t]*\n([\s\S]*?)(?:\n## |\n*$)/);
+    const stack = stackMatch ? stackMatch[1].trim() : "";
+    const summaryPoints = notesMatch
+      ? notesMatch[1]
+          .split("\n")
+          .map((line) => line.trim())
+          .filter((line) => line.startsWith("* ") || line.startsWith("- "))
+          .map((line) => line.slice(2).trim())
+          .filter(Boolean)
+      : [];
+    return { stack, summaryPoints };
+  } catch {
+    return { stack: "", summaryPoints: [] };
+  }
+}
+
 function renderCard(projectName) {
   const safeName = escapeHtml(projectName);
-  const note = projectName === "qwen3.6" ? qwenNote : "";
+  const { stack, summaryPoints } = parseDevNotes(projectName);
+  const stackHtml = stack
+    ? `<p class="note-stack"><strong>Stack:</strong> ${escapeHtml(stack)}</p>`
+    : "";
+  const pointsHtml =
+    summaryPoints.length > 0
+      ? `<ul class="note-list">${summaryPoints
+          .map((point) => `<li>${escapeHtml(point)}</li>`)
+          .join("")}</ul>`
+      : "";
+  const noteHtml =
+    stackHtml || pointsHtml
+      ? `<div class="note"><p class="note-title">From DEV_NOTES.md</p>${stackHtml}${pointsHtml}</div>`
+      : "";
   return `
 <article class="card">
   <a href="${safeName}/index.html"><img src="site-assets/screenshots/${safeName}.png" alt="${safeName} gameplay screenshot" loading="lazy" /></a>
   <div class="card-body">
     <h2><a href="${safeName}/index.html">${safeName}</a></h2>
     <p class="meta">Live gameplay screenshot.</p>
-    ${note}
+    ${noteHtml}
   </div>
 </article>`;
 }
