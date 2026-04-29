@@ -25,7 +25,9 @@ jobs:
         with:
           node-version: '22'
           cache: npm
-          cache-dependency-path: cursor-auto/package-lock.json
+          cache-dependency-path: |
+            cursor-auto/package-lock.json
+            gemini-flash/package-lock.json
 
       - name: Build static site
         run: make site

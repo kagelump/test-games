@@ -16,3 +16,6 @@ blob-report/
 *.swo
 .idea/
 .vscode/
+
+# npm cache (local / Actions setup-node)
+.npm/

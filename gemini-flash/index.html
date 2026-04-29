@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat Clicker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <canvas id="gameCanvas"></canvas>
+        <div id="ui-layer">
+            <div id="hud">
+                <div id="score-container">
+                    <img src="assets/treat_icon.png" class="icon" alt="Treat">
+                    <span id="score">0</span>
+                </div>
+                <div id="hunger-bar-container">
+                    <div id="hunger-label">CAT BOREDOM</div>
+                    <div id="hunger-bar-bg">
+                        <div id="hunger-bar-fill"></div>
+                    </div>
+                </div>
+                <div id="upgrades">
+                    <div class="upgrade" id="upgrade-1" title="Shortcut: 1">
+                        <img src="assets/upgrade_mouse.png" alt="Toy Mouse">
+                        <div class="upgrade-info">
+                            <div class="name">Toy Mouse</div>
+                            <div class="cost">10</div>
+                        </div>
+                    </div>
+                    <div class="upgrade" id="upgrade-2" title="Shortcut: 2">
+                        <img src="assets/upgrade_mouse.png" alt="Yarn Ball">
+                        <div class="upgrade-info">
+                            <div class="name">Yarn Ball</div>
+                            <div class="cost">100</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="menu" class="overlay">
+                <h1>CAT CLICKER</h1>
+                <img src="assets/cat_main.png" alt="Fat Cat" id="menu-cat">
+                <p>Click the cat to feed it treats!</p>
+                <p>Don't let the cat get bored!</p>
+                <button id="start-btn">START GAME</button>
+                <div class="controls-hint">
+                    Click Cat to earn treats<br>
+                    Numbers 1-2 for upgrades
+                </div>
+            </div>
+
+            <div id="win-screen" class="overlay hidden">
+                <h1>CAT HEAVEN!</h1>
+                <p>You've collected 1,000,000 treats!</p>
+                <p>The cat is extremely happy and fat.</p>
+                <button class="restart-btn">PLAY AGAIN</button>
+            </div>
+
+            <div id="lose-screen" class="overlay hidden">
+                <h1>CAT BORED...</h1>
+                <p>The cat got bored and wandered away.</p>
+                <button class="restart-btn">TRY AGAIN</button>
+            </div>
+        </div>
+        <div id="fps-overlay" class="hidden">FPS: 60</div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>

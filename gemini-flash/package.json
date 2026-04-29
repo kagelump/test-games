@@ -1,0 +1,11 @@
+{
+  "name": "cat-clicker",
+  "version": "1.0.0",
+  "description": "Cat themed cookie clicker game",
+  "scripts": {
+    "test": "npx playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.43.0"
+  }
+}

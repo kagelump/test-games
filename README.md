@@ -10,6 +10,17 @@ This repo is a **showcase of different models one-shotting a web game**. Each to
 
 The **`archive/`** folder is excluded from the umbrella build; everything else that looks like a directory at the repo root is treated as a showcase entry.
 
+## Usage
+
+After running `./new.sh model-name`, run your agent in yolo mode in the `model-name` directory, and give it this prompt (Theme is an example, change it at will).
+
+```
+Read GAME_DEV.md and follow it as your full system brief. The Prompt is:
+"Cat themed, Cookie clicker style game."
+
+Begin. Do not ask clarifying questions.
+```
+
 ## Umbrella Makefile (repo root)
 
 From the repository root:
