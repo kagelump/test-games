@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmic Cat Clicker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <canvas id="gameCanvas"></canvas>
+        <div id="ui-layer">
+            <div id="menu-screen" class="screen">
+                <h1>Cosmic Cat Clicker</h1>
+                <img src="assets/cat.png" alt="Cosmic Cat" class="title-art">
+                <button id="start-btn">Start Purring</button>
+            </div>
+            <div id="hud" class="hidden">
+                <div class="stat">Meow-nies: <span id="score">0</span></div>
+                <div class="stat">MPS: <span id="mps">0</span></div>
+                <div id="upgrade-panel">
+                    <button id="upgrade-kitten" class="upgrade-btn">
+                        Buy Kitten Assistant<br>Cost: <span id="kitten-cost">10</span>
+                    </button>
+                </div>
+                <div id="controls-hint">Click the Cat! Avoid the Void Orb!</div>
+            </div>
+            <div id="win-screen" class="screen hidden">
+                <h1>YOU ARE THE CAT LORD!</h1>
+                <p>You've reached 1 Trillion Meow-nies!</p>
+                <button onclick="location.reload()">Play Again</button>
+            </div>
+            <div id="lose-screen" class="screen hidden">
+                <h1>VOIDED!</h1>
+                <p>The Void Orb stole your purr-fits!</p>
+                <button onclick="location.reload()">Try Again</button>
+            </div>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
