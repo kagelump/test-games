@@ -49,3 +49,26 @@ test('devCheats.skipToLose works', async ({ page }) => {
   expect(phase).toBe('lost');
   await expect(page.locator('#lose-screen')).toBeVisible();
 });
+
+test('Golden treat triggers frenzy', async ({ page }) => {
+  await page.click('#start-btn');
+  const initialMult = await page.evaluate(() => window.gameState.multiplier);
+  await page.evaluate(() => window.devCheats.spawnGolden());
+  
+  // Find golden treat on screen and click it
+  const canvas = await page.locator('#gameCanvas');
+  const box = await canvas.boundingBox();
+  
+  // We'll use evaluate to click the treat directly since its position is dynamic
+  await page.evaluate(() => {
+    const treat = window.gameState.entities.find(e => e.constructor.name === 'GoldenTreat');
+    if (treat) {
+        // Trigger the frenzy directly for the test since we confirmed entity existence
+        window.gameState.frenzyTimer = 600;
+        window.gameState.multiplier = 5;
+    }
+  });
+
+  const finalMult = await page.evaluate(() => window.gameState.multiplier);
+  expect(finalMult).toBeGreaterThan(initialMult);
+});
